@@ -173,10 +173,10 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <div className="bg-brand-accent p-2 rounded-lg">
+          <div className="bg-brand-accent p-2 rounded-lg shrink-0">
             <Leaf className="text-white w-6 h-6" />
           </div>
-          <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-brand-dark' : 'text-white'}`}>
+          <span className={`text-xl font-bold tracking-tight whitespace-nowrap shrink-0 ${isScrolled ? 'text-brand-dark' : 'text-white'}`}>
             PHX <span className="text-brand-primary">HARDSCAPE</span>
           </span>
         </div>
@@ -336,7 +336,7 @@ export default function App() {
   const prevReview = () => setReviewIndex((prev) => Math.max(prev - 1, 0));
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Navbar />
 
       {/* --- Hero Section --- */}
@@ -391,23 +391,23 @@ export default function App() {
             </div>
 
             {/* Trust Numbers Strip */}
-            <div className="mt-12 lg:mt-16 grid grid-cols-2 sm:grid-cols-3 gap-y-8 gap-x-6 border-t border-white/20 pt-8 relative z-20">
-              <div className="flex flex-col gap-1">
+            <div className="mt-12 lg:mt-16 flex flex-col sm:flex-row gap-y-8 gap-x-6 justify-between border-t border-white/20 pt-8 relative z-20">
+              <div className="flex flex-col gap-1 items-start w-full sm:w-auto">
                 <div className="text-3xl md:text-4xl font-black text-white drop-shadow-md tracking-tight">15+</div>
-                <div className="text-xs md:text-sm font-bold text-gray-300 uppercase tracking-widest drop-shadow-md">Years in PHX</div>
+                <div className="text-sm font-bold text-gray-300 uppercase tracking-widest drop-shadow-md">Years in PHX</div>
               </div>
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 items-start w-full sm:w-auto">
                 <div className="text-3xl md:text-4xl font-black text-white drop-shadow-md tracking-tight">1,200+</div>
-                <div className="text-xs md:text-sm font-bold text-gray-300 uppercase tracking-widest drop-shadow-md">Projects Done</div>
+                <div className="text-sm font-bold text-gray-300 uppercase tracking-widest drop-shadow-md">Projects Done</div>
               </div>
-              <div className="flex flex-col gap-1 col-span-2 sm:col-span-1">
+              <div className="flex flex-col gap-1 items-start w-full sm:w-auto">
                 <div className="text-3xl md:text-4xl font-black text-white drop-shadow-md tracking-tight flex items-center gap-3">
                   4.9<span className="text-xl text-brand-primary/80">/5</span>
                   <div className="flex gap-0.5" aria-label="4.9 out of 5 stars" role="img">
                     {[...Array(5)].map((_, i) => <Star key={i} size={16} className="fill-brand-primary text-brand-primary" aria-hidden="true" />)}
                   </div>
                 </div>
-                <div className="text-xs md:text-sm font-bold text-gray-300 uppercase tracking-widest drop-shadow-md mt-1">Google Reviews</div>
+                <div className="text-sm font-bold text-gray-300 uppercase tracking-widest drop-shadow-md mt-1">Google Reviews</div>
               </div>
             </div>
           </motion.div>
@@ -709,12 +709,12 @@ export default function App() {
             {/* Carousel Track */}
             <div className="overflow-hidden py-8 px-4 -mx-4">
               <motion.div 
-                className="flex gap-6"
-                animate={{ x: `calc(-${reviewIndex * 344}px)` }}
-                transition={{ type: "spring", stiffness: 200, damping: 16 }}
+                className="flex gap-6 relative"
+                animate={{ x: `calc(-${reviewIndex * 100}% - ${reviewIndex * 1.5}rem)` }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
               >
                 {REVIEWS.map((review) => (
-                  <div key={review.id} className="w-[320px] shrink-0">
+                  <div key={review.id} className="min-w-full sm:min-w-[calc(50%-0.75rem)] lg:min-w-[calc(33.333%-1rem)] shrink-0">
                     <div className="bg-white rounded-[1.25rem] p-6 shadow-md border border-gray-100 relative h-full flex flex-col hover:shadow-xl transition-shadow duration-300 text-left">
                       
                       {/* Top Row: Avatar, Date, Google Logo */}
