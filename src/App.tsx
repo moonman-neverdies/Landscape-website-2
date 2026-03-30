@@ -194,12 +194,12 @@ const Navbar = () => {
 
         <button
           type="button"
-          className="md:hidden p-2 text-brand-dark"
+          className="md:hidden w-12 h-12 flex items-center justify-center text-brand-dark active:bg-white/10 rounded-xl transition-colors"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X className={isScrolled ? 'text-brand-dark' : 'text-white'} /> : <Menu className={isScrolled ? 'text-brand-dark' : 'text-white'} />}
+          {isMenuOpen ? <X className={isScrolled ? 'text-brand-dark' : 'text-white'} size={28} /> : <Menu className={isScrolled ? 'text-brand-dark' : 'text-white'} size={28} />}
         </button>
       </div>
 
@@ -211,11 +211,11 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 right-0 bg-white shadow-xl p-6 flex flex-col gap-4 md:hidden"
           >
-            <a href="#services" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-brand-dark">Services</a>
-            <a href="#gallery" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-brand-dark">Gallery</a>
-            <a href="#process" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-brand-dark">How It Works</a>
-            <a href="#reviews" onClick={() => setIsMenuOpen(false)} className="text-lg font-medium text-brand-dark">Reviews</a>
-            <a href="tel:6025550123" className="flex items-center justify-center gap-2 bg-brand-accent text-white p-4 rounded-xl font-bold">
+            <a href="#services" onClick={() => setIsMenuOpen(false)} className="block py-3 text-lg font-medium text-brand-dark border-b border-gray-100">Services</a>
+            <a href="#gallery" onClick={() => setIsMenuOpen(false)} className="block py-3 text-lg font-medium text-brand-dark border-b border-gray-100">Gallery</a>
+            <a href="#process" onClick={() => setIsMenuOpen(false)} className="block py-3 text-lg font-medium text-brand-dark border-b border-gray-100">How It Works</a>
+            <a href="#reviews" onClick={() => setIsMenuOpen(false)} className="block py-3 text-lg font-medium text-brand-dark border-b border-gray-100">Reviews</a>
+            <a href="tel:6025550123" className="flex items-center justify-center gap-2 bg-brand-accent text-white p-4 mt-2 rounded-xl font-bold active:scale-95 transition-transform">
               <Phone size={20} />
               Call Now
             </a>
@@ -365,27 +365,27 @@ export default function App() {
               <span className="text-sm font-bold tracking-wide uppercase">Serving Phoenix Properties Since 2009</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-6 relative z-20 shadow-black/50 drop-shadow-xl">
-              Elevate Every Inch <br />
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.1] mb-6 relative z-20 shadow-black/50 drop-shadow-xl">
+              Elevate Every Inch <br className="hidden sm:block" />
               <span className="text-brand-primary">of Your Outdoor Space.</span>
             </h1>
 
-            <p className="text-xl text-gray-200 mb-10 max-w-lg leading-relaxed relative z-20 shadow-black/50 drop-shadow-md font-medium">
+            <p className="text-lg sm:text-xl text-gray-200 mb-8 sm:mb-10 max-w-lg leading-relaxed relative z-20 shadow-black/50 drop-shadow-md font-medium">
               We help Phoenix property owners create outdoor spaces that look great, hold their value, and leave a lasting impression on everyone who walks through.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 relative z-20">
+            <div className="flex flex-col flex-wrap sm:flex-row gap-4 relative z-20 w-full">
               <button
                 type="button"
-                className="bg-brand-primary text-brand-dark px-8 py-5 rounded-xl font-black text-lg uppercase tracking-wider hover:bg-brand-primary/90 hover:scale-105 transition-all shadow-2xl shadow-brand-primary/20 flex items-center justify-center gap-3 group"
+                className="w-full sm:w-auto bg-brand-primary text-brand-dark px-6 py-5 sm:px-8 rounded-xl font-black text-base sm:text-lg uppercase tracking-wider hover:bg-brand-primary/90 hover:scale-105 transition-all shadow-2xl shadow-brand-primary/20 flex items-center justify-center gap-3 group"
                 onClick={() => document.getElementById('cta-section')?.scrollIntoView({ behavior: 'smooth' })}
                 aria-label="Get a free landscaping quote"
               >
                 Get My Free Quote
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </button>
-              <a href="tel:6025550123" className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-5 rounded-xl font-bold text-lg hover:bg-white/20 transition-all flex items-center justify-center gap-3">
-                <Phone className="text-brand-primary" />
+              <a href="tel:6025550123" className="w-full sm:w-auto bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-5 sm:px-8 rounded-xl font-bold text-base sm:text-lg hover:bg-white/20 transition-all flex items-center justify-center gap-3">
+                <Phone className="text-brand-primary shrink-0" />
                 (602) 555-0123
               </a>
             </div>
